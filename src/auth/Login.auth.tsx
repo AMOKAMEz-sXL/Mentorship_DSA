@@ -1,5 +1,7 @@
 // src/auth/login.auth.tsx
 
+import { api_URL } from "../api_url/api_URL";
+
 export interface LoginResponse {
     message: string;
     token?: string;
@@ -14,7 +16,7 @@ export interface LoginResponse {
 
 export async function loginUser(email: string, password: string): Promise<LoginResponse> {
     try {
-        const response = await fetch('http://localhost:3001/api/users/auth/login', {
+        const response = await fetch(`${api_URL}/users/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
